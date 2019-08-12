@@ -24,7 +24,7 @@
             <span class="time" id="time" ></span>
             <div class="container">
                 <h1>ASD  Demo Application</h1>                        
-                <p class="p">Java Maven Web Application</p>                
+                <p class="p">Java Maven Web Application - edit</p>                
             </div>
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
