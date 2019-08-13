@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/08/2019, 2:48:49 PM
+    Author     : Mougi
+*/
+
+body{
+    background-color: beige;
+    margin: 0;
+}
+
+.title{
+    color: red;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+
+.links{
+    display: inline-block;
+    color: grey;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+
+p{
+    color: grey;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+
+.navbar{
+    background-color: lightgray; 
+    margin: auto;
+}

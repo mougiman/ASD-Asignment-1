@@ -1,16 +1,27 @@
+<%@page import="asd.demo.model.dao.DBManager"%>
 <%@page import="asd.demo.model.*"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
     <head>      
-        <!--all of george's links and scripts, probably wont use them-->
+        <title>Main</title>
+        <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-    <title>Main</title>
+
     <body>        
-        <a href="index.jsp">Main</a>
-        <h1><p>Sell n Buy / Barter-Mart</p></h1>
+        <%  // This is code in relation to the local database
+            //DBManager manager = (DBManager) session.getAttribute("manager");
+        %>
+       
+        <p class="title">Sell n Buy / Barter-Mart</p>
         <p>Name is currently pending</p>
-        <a href="listings.jsp">View Listings</a>
-        <a href="listItem.jsp">List an Item</a>
+        
+        <div class="navbar">
+        <a href="index.jsp" class="links">Main</a>
+        <a href="listings.jsp" class="links">View Listings</a>
+        <a href="listItem.jsp" class="links">List an Item</a>
+        </div>
+        
+        <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
