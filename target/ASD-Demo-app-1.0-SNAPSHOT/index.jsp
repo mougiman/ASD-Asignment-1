@@ -22,6 +22,13 @@
         <a href="listItem.jsp" class="links">List an Item</a>
         </div>
         
+        
+        <div class="itemList">
+            <%for (int i = 0; i < 9; i++) { //later this will display all the listings in the DB%>
+            <div class="itemCard">-Item <%=i%>-</div>
+            <% } %>
+        </div>        
+        
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
