@@ -1,7 +1,11 @@
 package asd.demo.controller;
 
+import asd.demo.model.dao.DBConnector;
+import asd.demo.model.dao.DBManager;
 import asd.demo.model.dao.MongoDBConnector;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -16,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * @author George
  */
 public class ConnServlet extends HttpServlet {
-    private MongoDBConnector connector;  
+    /*private MongoDBConnector connector;  
      
     @Override 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,4 +40,46 @@ public class ConnServlet extends HttpServlet {
         rs.forward(request, response);
     }    
   
+    */
+    //Evreything below here is only temporary for R0 and is used to connect to a local SQL database
+    
+    
+    private DBConnector db;
+    private DBManager manager;
+    private Connection conn;
+    
+    @Override //Create and instance of DBConnector for the deployment session
+    public void init() {
+        try {
+            db = new DBConnector();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+    }
+  
+    @Override //Add the DBManager instance to the session 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");        
+        HttpSession session = request.getSession();
+        conn = db.openConnection();        
+        try {
+            manager = new DBManager(conn);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        //export the DB manager to the view-session (JSPs)
+        session.setAttribute("manager", manager);
+        
+    }    
+    
+    @Override //Destroy the servlet and release the resources of the application
+     public void destroy() {
+        try {
+            db.closeConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
