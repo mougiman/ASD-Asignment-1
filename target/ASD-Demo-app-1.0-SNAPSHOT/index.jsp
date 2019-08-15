@@ -7,20 +7,13 @@
         <title>Main</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-
+            <jsp:include page="header.jsp"/>
     <body>        
         <%  // This is code in relation to the local database
             //DBManager manager = (DBManager) session.getAttribute("manager");
         %>
        
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
-        
-        <div class="navbar">
-        <a href="index.jsp" class="links">Main</a>
-        <a href="listings.jsp" class="links">View Listings</a>
-        <a href="listItem.jsp" class="links">List an Item</a>
-        </div>
+  
         
         
         <div class="itemList">
