@@ -3,7 +3,7 @@ package asd.demo.model;
 import java.io.Serializable;
 
 public class User  implements Serializable{
-
+    private String ID;
     private String name;
     private String email;
     private String password;
@@ -12,7 +12,8 @@ public class User  implements Serializable{
     public User() {
     }
 
-    public User(String name, String email, String password, String phone) {
+    public User(String ID,String name, String email, String password, String phone) {
+        this.ID = ID;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -52,6 +53,10 @@ public class User  implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+     public boolean isAdmin() {
+        return (Integer.parseInt(ID)/100000) == 2;
     }
 
 }
