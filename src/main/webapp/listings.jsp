@@ -14,9 +14,8 @@
     </head>
                     <jsp:include page="header.jsp"/>
 
-    <body>
+   <body>
  
-
         <p>Listings</p>
         <table>
             <tr>
@@ -24,6 +23,7 @@
                 <td>Name</td>
                 <td>Price</td>
                 <td>Buy</td>
+                <td>Seller</td>
             </tr>
             <%for (int i = 0; i < 5; i++) { //later this will display all the listings in the DB%>
             <tr>
@@ -31,6 +31,7 @@
                 <td>iPhone X</td>
                 <td>$1000.00</td>
                 <td>Buy</td>
+                <td><a href="view_user.jsp">Sean</a></td>
             </tr>
             <%  }
             %>
