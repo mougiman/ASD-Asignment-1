@@ -22,6 +22,8 @@
             <a href="index.jsp" class="links">Main</a>
             <a href="listings.jsp" class="links">View Listings</a>
             <a href="listItem.jsp" class="links">List an Item</a>
+            <a href="Auction.jsp" class="links">Auction an item</a>
+            <a href="placebid.jsp" class="links">Bid in an Auction</a>
         </div>
 
         <%  // This is code in relation to the local database
@@ -48,7 +50,7 @@
                         <p>Will be implemented</p>
                     </td>
                     <td>
-                        <input type="text" name="">
+                        <input type="text" name="itemImageref">
                     </td>
                 </tr>
                 <tr>
@@ -56,7 +58,21 @@
                         <p>Category:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemCategory">
+                        <select name="itemCategory">
+                            <option value="Clothing">Clothing</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Jewelery">Jewelery</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Music">Music</option>
+                            <option value="Literature">Literature</option>
+                            <option value="Art">Art</option>
+                            <option value="Food & Drinks">Food & Drinks</option>
+                            <option value="Antiques">Antiques</option>
+                            <option value="Collectables">Collectables</option>
+                            <option value="Children Toys">Children Toys</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +88,13 @@
                         <p>Condition:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemCond">
+                        <select name="itemCond">
+                            <option value="New">New</option>
+                            <option value="Slightly Used">Slightly Used</option>
+                            <option value="Used">Used</option>
+                            <option value="Very Used">Very Used</option>
+                            <option value="Poor">Poor</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +102,7 @@
                         <p>Quantity:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemQuantity">
+                        <input type="number" name="itemQuantity">
                     </td>
                 </tr>                
                 <tr>
@@ -104,7 +126,7 @@
                         <p>Year Made:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemYearMade">
+                        <input type="number" name="itemYearMade">
                     </td>
                 </tr>
                 <tr><td></td><td>
@@ -118,18 +140,21 @@
 
             String itemCategory = request.getParameter("itemCategory");
             String itemDesc = request.getParameter("itemDesc");
-            String itemCond = request.getParameter("name");
+            String itemCond = request.getParameter("itemCond");
             Double itemPrice = Double.parseDouble(request.getParameter("itemPrice"));
             String itemDateListed = "" + java.time.LocalDate.now();
             int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
             String itemSellerID = "11111111";
             Random rand = new Random();
             String itemID = "" + rand.nextInt(999999999);
+            //later this will check if the id alrady exists in the database
             String itemColor = request.getParameter("itemColor");
             String itemYearMade = request.getParameter("itemYearMade");
 
-            manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
-        %>
+            //this will be added after R0
+            //i gotta ask george how handle errors incase a user leaves a field null
+            //manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
+%>
         <p><%=itemName%> has been Listed</p>
         <a href="listItem.jsp">List another item</a>
         <%
