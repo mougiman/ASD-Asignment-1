@@ -15,12 +15,25 @@
        
   
         
-        
-        <div class="itemList">
-            <%for (int i = 0; i < 9; i++) { //later this will display all the listings in the DB%>
-            <div class="itemCard">-Item <%=i%>-</div>
-            <% } %>
-        </div>        
+        <div class="container">
+            <div class="row">
+                <h> All products </h>
+            </div>
+            <div class="row">
+                <div class="itemList">
+                    
+                    <%for (int i = 0; i < 9; i++) { //later this will display all the listings in the DB%>
+                    
+                     <a href="itemPage.jsp" class="itemCard">
+                         <img src="puzzle-img.jpg" style="width:200px; height:200px;"/>
+                         -Item <%=i%>- <!--- later this will display item name --->
+                         Price: $10.00 <!--- later this will display item price --->
+                     </a> 
+                     
+                    <% } %>
+                </div>        
+            </div>
+        </div> 
         
         <jsp:include page="/ConnServlet" flush="true" />
     </body>
