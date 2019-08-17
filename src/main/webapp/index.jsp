@@ -22,8 +22,16 @@
         <a href="listItem.jsp" class="links">List an Item</a>
         <a href="Auction.jsp" class="links">Auction a product</a>
         <a href="placebid.jsp" class="links">place a bid</a>
+
+        <a href="login.jsp" class="links">Login</a>
         </div>
         
         <jsp:include page="/ConnServlet" flush="true" />
+        <jsp:include page="logout.jsp"/>
+
+        </div>
+        
+     
+
     </body>
 </html>
