@@ -14,9 +14,7 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-    <body>
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
+                <jsp:include page="header.jsp"/>
 
         <div class="navbar">
             <a href="index.jsp" class="links">Main</a>
@@ -163,3 +161,4 @@
 
     </body>
 </html>
+
