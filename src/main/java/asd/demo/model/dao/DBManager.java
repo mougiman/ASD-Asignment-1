@@ -1,10 +1,12 @@
 package asd.demo.model.dao;
 
-import asd.demo.model.Auction;
 import java.sql.*;
+import java.util.ArrayList;
+import asd.demo.model.Auction;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -31,7 +33,10 @@ public class DBManager {
         st.executeUpdate(query);
     }
     
-        public void addAucItem(String id, String name, String datelisted, int quantity,  Double bid, String desc, String category, String yearMade, String sellerId, String condition, String color,String expdate,String CusID) throws SQLException {
+    
+    
+    
+    public void addAucItem(String id, String name, String datelisted, int quantity,  Double bid, String desc, String category, String yearMade, String sellerId, String condition, String color,String expdate,String CusID) throws SQLException {
         String query = "INSERT INTO AUC (ID, NAME, DATELISTED, QUANTITY, BID，DESCRIPTION, CATEGORY, YEARMADE, SELLERID, CONDITION, COLOR,EXPDATE,CUSID) VALUES ('" + id + "','" + name + "','" + datelisted + "'," + quantity + "," + bid + ",'" + desc + "','" + category + "','" + yearMade + "','" + sellerId + "','" + condition + "','" + color + "','" + expdate + "','" + CusID + "')";
         st.executeUpdate(query);
     }
@@ -96,4 +101,6 @@ return true;
                  {return false;}
          return true;
    }
-}
+   
+   
+   }
