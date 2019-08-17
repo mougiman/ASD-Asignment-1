@@ -106,7 +106,7 @@ return true;
         String searchQueryString = "select * from ISDUSER.ORDERS";
         ResultSet rs = st.executeQuery(searchQueryString);
         ArrayList<History> histoiesFromDB;
-        histoiesFromDB = new ArrayList();
+        historiesFromDB = new ArrayList();
         //search the ResultSet for a student using the parameters
         boolean hasHistory;
         hasHistory = rs.next();
@@ -125,11 +125,11 @@ return true;
             String hCusID = rs.getString("CusID");
             String hPrice = rs.getString("price");
 
-            histoiesFromDB.add(new History(hID, hName, hDatelisted, hQty, hDesc, hCategory, hYearMade, hSellerId, hColor, hCusID, hPrice));
+            historiesFromDB.add(new History(hID, hName, hDatelisted, hQty, hDesc, hCategory, hYearMade, hSellerId, hColor, hCusID, hPrice));
         }
         rs.close();
         // st.close();
-        return histoiesFromDB.toArray(new History[histoiesFromDB.size()]);
+        return historiesFromDB.toArray(new History[historiesFromDB.size()]);
 
     }
    
