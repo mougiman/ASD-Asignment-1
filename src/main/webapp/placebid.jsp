@@ -14,6 +14,7 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
+     <jsp:include page="header.jsp"/>
     <body>
 
 
