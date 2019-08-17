@@ -101,6 +101,37 @@ return true;
                  {return false;}
          return true;
    }
+    
+    public History[] getHistory() throws SQLException {
+        String searchQueryString = "select * from ISDUSER.ORDERS";
+        ResultSet rs = st.executeQuery(searchQueryString);
+        ArrayList<History> histoiesFromDB;
+        histoiesFromDB = new ArrayList();
+        //search the ResultSet for a student using the parameters
+        boolean hasHistory;
+        hasHistory = rs.next();
+
+        while (rs.next()) {
+
+            String hID = rs.getString("id");
+            String hName = rs.getString("name");
+            String hDatelisted = rs.getString("datelisted");
+            String hQty = rs.getString("qty");
+            String hDesc = rs.getString("desc");
+            String hCategory = rs.getString("category");
+            String hYearMade = rs.getString("yearMade");
+            String hSellerId = rs.getString("sellerId");
+            String hColor = rs.getString("color");
+            String hCusID = rs.getString("CusID");
+            String hPrice = rs.getString("price");
+
+            histoiesFromDB.add(new History(hID, hName, hDatelisted, hQty, hDesc, hCategory, hYearMade, hSellerId, hColor, hCusID, hPrice));
+        }
+        rs.close();
+        // st.close();
+        return histoiesFromDB.toArray(new History[histoiesFromDB.size()]);
+
+    }
    
    
    }
