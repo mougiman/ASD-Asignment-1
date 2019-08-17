@@ -15,7 +15,7 @@
         <title>Login Page</title>
     </head>
     <body>
-        <form method="post" action="home.jsp">
+        <form method="post" action="index.jsp">
         <div class="container">
         <h1>Login</h1>
          
