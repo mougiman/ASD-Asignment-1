@@ -46,31 +46,3 @@ p{
     background-color: lightgray; 
     margin: auto;
 }
-
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    color: green;
-}
-.col{
-    align-content: center;
-    width: 250px;
-    background-color: green;
-}
-
-.itemList{
-    display: flex;
-    flex-wrap: wrap;
-    color: white;
-    width: 100%;
-    background-color: lightblue;
-}
-
-.itemCard{
-    text-align: center;
-    width:250px;
-    height: 300px;
-    margin: 20px 20px;
-    background-color: pink;
-    
-}

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : listItem
-    Created on : 11/08/2019, 3:29:51 PM
-    Author     : Mougi
+    Document   : Auction
+    Created on : 2019-8-13, 19:34:59
+    Author     : Cai weize
 --%>
 
 <%@page import="java.util.Random"%>
@@ -14,15 +14,9 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
+     <jsp:include page="header.jsp"/>
     <body>
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
-
-        <div class="navbar">
-            <a href="index.jsp" class="links">Main</a>
-            <a href="listings.jsp" class="links">View Listings</a>
-            <a href="listItem.jsp" class="links">List an Item</a>
-        </div>
+        
 
         <%  // This is code in relation to the local database
             DBManager manager = (DBManager) session.getAttribute("manager");
@@ -30,9 +24,9 @@
             String itemName = request.getParameter("itemName");
             if (itemName == null) {
         %>
-        <h1><p>List an Item</p></h1>
+        <h1><p>Auction a Product</p></h1>
         <!--If user is logged in then -->
-        <form method="post" action="listItem.jsp">
+        <form method="post" action="Auction.jsp">
             <table>
                 <tr>
                     <td>
@@ -85,7 +79,7 @@
                 </tr>                
                 <tr>
                     <td>
-                        <p>Pricing:</p>
+                        <p>Lowest price:</p>
                     </td>
                     <td>
                         <input type="text" name="itemPrice">
@@ -107,9 +101,17 @@
                         <input type="text" name="itemYearMade">
                     </td>
                 </tr>
+                 <tr>
+                    <td>
+                        <p>Expire Date:</p>
+                    </td>
+                    <td>
+                        <input type="date" name="expdate">
+                    </td>
+                </tr>
                 <tr><td></td><td>
                         <!--If all necessary forms are filled out then let user submit -->
-                        <input type="submit" value="List Item">
+                        <input type="submit" value="Auction item">
                     </td></tr>
             </table>
         </form>
@@ -122,16 +124,18 @@
             Double itemPrice = Double.parseDouble(request.getParameter("itemPrice"));
             String itemDateListed = "" + java.time.LocalDate.now();
             int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
+            String expdate = request.getParameter("expdate");
+           
             String itemSellerID = "11111111";
             Random rand = new Random();
             String itemID = "" + rand.nextInt(999999999);
             String itemColor = request.getParameter("itemColor");
             String itemYearMade = request.getParameter("itemYearMade");
 
-            manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
+            manager.addAucItem(itemID, itemName, itemDateListed, itemQuantity,  itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor, expdate, null);
         %>
-        <p><%=itemName%> has been Listed</p>
-        <a href="listItem.jsp">List another item</a>
+        <p><%=itemName%> has been Auctioned</p>
+        <a href="Auction.jsp">Auction another Product</a>
         <%
             }
         %>

@@ -12,14 +12,14 @@
         <title>Listings</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-                    <jsp:include page="header.jsp"/>
+    <body>
+        <p class="title">Sell n Buy / Barter-Mart</p>
+        <p>Name is currently pending</p>
 
         <div class="navbar">
             <a href="index.jsp" class="links">Main</a>
             <a href="listings.jsp" class="links">View Listings</a>
             <a href="listItem.jsp" class="links">List an Item</a>
-            <a href="Auction.jsp" class="links">Auction an item</a>
-            <a href="placebid.jsp" class="links">Bid in an Auction</a>
         </div>
 
         <p>Listings</p>
@@ -29,7 +29,6 @@
                 <td>Name</td>
                 <td>Price</td>
                 <td>Buy</td>
-                <td>Seller</td>
             </tr>
             <%for (int i = 0; i < 5; i++) { //later this will display all the listings in the DB%>
             <tr>
@@ -37,7 +36,6 @@
                 <td>iPhone X</td>
                 <td>$1000.00</td>
                 <td>Buy</td>
-                <td><a href="view_user.jsp">Sean</a></td>
             </tr>
             <%  }
             %>
