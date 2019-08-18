@@ -23,7 +23,7 @@
         String phone = request.getParameter("phone");
         
         //User user = new User(name, email, password, phone);
-        DBManager manager = (DBManager) session.getAttribute("user");      
+        //DBManager manager = (DBManager) session.getAttribute("user");      
         %>
     </head>
     <body>
