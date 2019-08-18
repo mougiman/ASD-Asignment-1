@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(Image/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+            
+p{
+    position: absolute;
+    top: 0;
+    right: 16px;
+    font-size: 16px;
+    font-family: Arial sans-serif;
+}
+
+a{
+    font-weight: bold;
+}
+            
+.signup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    padding: 40px;
+    background: #1a1a1a;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+    opacity: 0.9;
+}
+            
+.signup h1{
+    font-size: 38px;
+    color: aliceblue;
+    height: 200;
+    margin: 40;
+    padding: 0;
+    text-align: center;
+}
+            
+.signup .inputbox input{
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+            
+.signup .inputbox label{
+    letter-spacing: 1px;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-family: Arial sans-serif;
+    font-size: 16px;
+     color: #fff;
+}
+            
+.signup input[type ="submit"]{
+    font-size: 20px;
+    font-family: Arial sans-serif;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40%;
+    float: left;
+}
+
+.signup input[type = "button"]{
+    font-size: 20px;
+    font-family: Arial sans-serif;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #e60909;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40%;
+    float: right;
+}
