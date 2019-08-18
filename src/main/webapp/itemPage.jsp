@@ -3,7 +3,7 @@
     Created on : 16/08/2019, 5:48:55 PM
     Author     : Calvin
 --%>
-
+<%@page import="asd.demo.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,6 +16,30 @@
         <div class="row">
             <div class="mainBox">
                 <div class="col">
+                    <!---
+                    <%
+                        //Item item = (Item) session.getAttribute("item");            
+                    %>
+                    <h><%//=item.getName()%></h>
+                    <p></p>
+                    <img src="<%//=item.getImage()%>" style="width:500px; height:400px;"/>
+                    <div> Description </div>
+                        <div> <%//=item.getDescription()%> </div>
+                        <div> Category: <%//=item.getCategory()%> </div>
+                        <div> Price: <%//=item.getImage()%> </div>
+                        <div> Condition: <%//=item.getImage()%> </div>
+                        <div> Color: <//%=item.getImage()%> </div>
+                        <div> Year Made: <%//=item.getImage()%> </div>
+                        <button type="button"> Buy Now! </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="userBox">
+                            <div> Listed User: <%//=item.getSellerID()%> </div>
+                            <div> Listed Date: <%//=item.getDateListed()%> </div>
+                        </div>
+                    </div>
+                    --->
                     <h>1000 Piece Puzzle</h> <!--- Will link to item info --->
                     <p></p>
                         <img src="puzzle-img.jpg" style="width:500px; height:400px;"/>
@@ -25,14 +49,14 @@
                         <div> Category: Toys/Games </div>
                         <div> Price: $10.00 </div>
                         <div> Condition: New </div>
+                        <div> Color: Brown </div>
                         <div> Year Made: 2018 </div>
+                        <button type="button"> Buy Now! </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="userBox">
                         <div> Listed User: Calvin </div> <!-- Will link to user's profile -->
-                        <div> Reputation: 1 out of 5 * </div>
-                        <div> Seller Location: Sydney </div>
                         <div> Listed Date: 15/08/2019 </div>
                     </div>
                 </div>

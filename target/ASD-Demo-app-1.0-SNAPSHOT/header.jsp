@@ -44,7 +44,6 @@
             <% } else { %>                      
             <a href="login.jsp" class="links">Log In</a>
             <a href="register.jsp" class="links" >Register</a>
-            <a href="cart.jsp" class="links">Cart</a>
             <% }%>                    
         </span> 
     </div>

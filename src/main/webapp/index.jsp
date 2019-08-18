@@ -10,7 +10,8 @@
 
     <body>        
         <%  // This is code in relation to the local database
-            //DBManager manager = (DBManager) session.getAttribute("manager");
+            DBManager manager = (DBManager) session.getAttribute("manager");
+            String itemName = request.getParameter("itemName");
         %>
        
         <jsp:include page="header.jsp"/>
@@ -19,6 +20,7 @@
             <div class="row">
                 <h> All products </h>
             </div>
+            
             <div class="row">
                 <div class="itemList">
                     
@@ -31,6 +33,9 @@
                      </a> 
                      
                     <% } %>
+                    
+                    
+                    
                 </div>        
             </div>
         </div> 

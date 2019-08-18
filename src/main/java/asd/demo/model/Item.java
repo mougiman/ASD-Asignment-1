@@ -21,12 +21,13 @@ public class Item implements Serializable {
     private String description;
     private String category;
     private String yearMade;
+    private String sellerID;
     private String condition;
-    private Image image;
+    private String color;
+    private String image;
     
-    public Item(String ID, String name, String dateListed, 
-            int stock, int soldQuantity, double price, 
-            String description, String category, String yearMade, String condition, Image image){
+    public Item(String ID, String name, String dateListed, int stock, int soldQuantity, double price, 
+            String description, String category, String yearMade, String sellerID, String condition, String color, String image){
             
         this.ID = ID;
         this.name = name;
@@ -37,7 +38,9 @@ public class Item implements Serializable {
         this.description = description;
         this.category = category;
         this.yearMade = yearMade;
+        this.sellerID = sellerID;
         this.condition = condition;
+        this.color = color;
         this.image = image;
     }
     /**
@@ -183,15 +186,43 @@ public class Item implements Serializable {
     /**
      * @return the image
      */
-    public Image getImage() {
+    public String getImage() {
         return image;
     }
 
     /**
      * @param image the image to set
      */
-    public void setImage(Image image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    /**
+     * @return the sellerID
+     */
+    public String getSellerID() {
+        return sellerID;
+    }
+
+    /**
+     * @param sellerID the sellerID to set
+     */
+    public void setSellerID(String sellerID) {
+        this.sellerID = sellerID;
+    }
+
+    /**
+     * @return the color
+     */
+    public String getColor() {
+        return color;
+    }
+
+    /**
+     * @param color the color to set
+     */
+    public void setColor(String color) {
+        this.color = color;
     }
     
 }

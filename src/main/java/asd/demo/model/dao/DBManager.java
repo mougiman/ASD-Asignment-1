@@ -34,6 +34,32 @@ public class DBManager {
         st.executeUpdate(query);
     }
     
+    public ArrayList<Item> getItem() throws SQLException{
+        ArrayList<Item> list = new ArrayList<Item>();
+        String query = "SELECT * FROM ITEMS";
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            String id = rs.getString(1);
+            String name = rs.getString(2);
+            String datelisted = rs.getString(3);
+            int stock = Integer.parseInt(rs.getString(4));
+            int soldQunatity = Integer.parseInt(rs.getString(5));
+            Double price = Double.parseDouble(rs.getString(6));
+            String desc = rs.getString(7);
+            String category = rs.getString(8);
+            String yearMade = rs.getString(9);
+            String sellerId = rs.getString(10);
+            String condition = rs.getString(11);          
+            String color = rs.getString(12);
+            String image = rs.getString(15);
+            
+            Item currItem = new Item(id, name, datelisted, stock, soldQunatity, price, desc, category, 
+                    yearMade, sellerId, condition,color, image);
+            list.add(currItem);
+        }
+        return list;
+    }
+    
     
     
     
