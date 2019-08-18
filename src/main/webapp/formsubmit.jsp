@@ -10,6 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome</title>
+        <style>
+            body{
+                background-color: beige;
+                    margin: 0;
+            }
+        </style>
         <%
         String name = request.getParameter("username");
         String email = request.getParameter("email");
@@ -18,16 +24,18 @@
         %>
     </head>
     <body>
-        <p>Welcom user: <%=name%></p>
-         <p class="form_title">Your account information has been submitted</p>
-        <table class="table">
-            <tr><td>Name: </td><td class="text"><%=name%></td></tr>
-            <tr><td>Email: </td><td class="text"><%=email%></td></tr>
-            <tr><td>Password: </td><td class="text"><%= password%></td></tr>
-            <tr><td>Phone Num: </td><td class="text"><%=phone%></td></tr>
-        </table>       
-    </body>
-    <p class="p">Click <a href="index.jsp" target="_blank"> here </a> to go to main page.</p>
+         <p class="form_title">Registerd successfully</p>
+         <p>Welcom user: <%=name%></p>
+         <div class="account">
+         <h1>Account information</h1>
+        <table>
+            <tr><td>Name: </td><td><%=name%></td></tr>
+            <tr><td>Email: </td><td><%=email%></td></tr>
+            <tr><td>Password: </td><td><%= password%></td></tr>
+            <tr><td>Phone Num: </td><td><%=phone%></td></tr>
+        </table>
+        </div>
+        <p><a href="index.jsp" style="color: dodgerblue" target="_blank">Home page</a></p>
     </body>
     <%
         

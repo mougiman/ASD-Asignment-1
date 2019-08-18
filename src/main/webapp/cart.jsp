@@ -11,6 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cart</title>
         <style>
+            body{
+                background-color: beige;
+                margin: 0;
+            }
+            
             input[type = "button"]{
                font-size: 20px;
                font-family: Arial sans-serif;
