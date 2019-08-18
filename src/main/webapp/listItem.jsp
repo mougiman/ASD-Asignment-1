@@ -66,7 +66,10 @@
                         <p>Condition:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemCond">
+                        <select name="itemCond">
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +77,7 @@
                         <p>Quantity:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemQuantity">
+                        <input type="number" name="itemQuantity">
                     </td>
                 </tr>                
                 <tr>
@@ -98,7 +101,7 @@
                         <p>Year Made:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemYearMade">
+                        <input type="number" name="itemYearMade">
                     </td>
                 </tr>
                 <tr><td></td><td>
@@ -109,7 +112,6 @@
         </form>
         <%
         } else {
-
             String itemCategory = request.getParameter("itemCategory");
             String itemDesc = request.getParameter("itemDesc");
             String itemCond = request.getParameter("name");
