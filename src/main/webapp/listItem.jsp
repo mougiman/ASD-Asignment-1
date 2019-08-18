@@ -14,15 +14,9 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-    <body>
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
 
-        <div class="navbar">
-            <a href="index.jsp" class="links">Main</a>
-            <a href="listings.jsp" class="links">View Listings</a>
-            <a href="listItem.jsp" class="links">List an Item</a>
-        </div>
+    <body>
+        <jsp:include page="header.jsp"/>
 
         <%  // This is code in relation to the local database
             DBManager manager = (DBManager) session.getAttribute("manager");
@@ -72,7 +66,10 @@
                         <p>Condition:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemCond">
+                        <select name="itemCond">
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +77,7 @@
                         <p>Quantity:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemQuantity">
+                        <input type="number" name="itemQuantity">
                     </td>
                 </tr>                
                 <tr>
@@ -104,7 +101,7 @@
                         <p>Year Made:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemYearMade">
+                        <input type="number" name="itemYearMade">
                     </td>
                 </tr>
                 <tr><td></td><td>
@@ -115,7 +112,6 @@
         </form>
         <%
         } else {
-
             String itemCategory = request.getParameter("itemCategory");
             String itemDesc = request.getParameter("itemDesc");
             String itemCond = request.getParameter("name");

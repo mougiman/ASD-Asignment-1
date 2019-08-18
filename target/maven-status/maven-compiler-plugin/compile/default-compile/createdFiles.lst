@@ -1,9 +1,13 @@
 asd\demo\model\Users.class
-asd\demo\controller\ValidatorServlet.class
 asd\demo\model\dao\DB.class
+asd\demo\controller\ConnServlet.class
+asd\demo\model\Auction.class
+asd\demo\model\History.class
+asd\demo\model\User.class
+asd\demo\controller\ValidatorServlet.class
+asd\demo\model\Auctions.class
 asd\demo\controller\Validator.class
 asd\demo\model\dao\DBConnector.class
 asd\demo\model\dao\MongoDBConnector.class
-asd\demo\controller\ConnServlet.class
 asd\demo\model\dao\DBManager.class
-asd\demo\model\User.class
+asd\demo\model\Histories.class
