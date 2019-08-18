@@ -34,7 +34,7 @@ public class DBManager {
         st.executeUpdate(query);
     }
     
-    /*public ArrayList<Item> getItem() throws SQLException{
+    public ArrayList<Item> getItem() throws SQLException{
         ArrayList<Item> list = new ArrayList<Item>();
         String query = "SELECT * FROM ITEMS";
         ResultSet rs = st.executeQuery(query);
@@ -58,7 +58,7 @@ public class DBManager {
             list.add(currItem);
         }
         return list;
-    }*/
+    }
     
     
     
@@ -161,4 +161,4 @@ return true;
     }
    
    
-}
+   }
