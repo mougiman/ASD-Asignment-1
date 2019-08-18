@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
     <body>  
+        <jsp:include page="header.jsp"/>    
         <div class="row">
             <div class="mainBox">
                 <div class="col">

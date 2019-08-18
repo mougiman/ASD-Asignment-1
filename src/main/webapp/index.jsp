@@ -13,20 +13,8 @@
             //DBManager manager = (DBManager) session.getAttribute("manager");
         %>
        
-  
-        
-        
-        
-        <div class="navbar">
-        <a href="index.jsp" class="links">Main</a>
-        <a href="listings.jsp" class="links">View Listings</a>
-        <a href="listItem.jsp" class="links">List an Item</a>
-        <a href="Auction.jsp" class="links">Auction a product</a>
-        <a href="placebid.jsp" class="links">place a bid</a>
-
-        <a href="login.jsp" class="links">Login</a>
-        </div>
-
+        <jsp:include page="header.jsp"/>
+            
         <div class="container">
             <div class="row">
                 <h> All products </h>

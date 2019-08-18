@@ -14,12 +14,9 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-    <body>
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
 
     <body>
-     
+        <jsp:include page="header.jsp"/>
 
         <%  // This is code in relation to the local database
             DBManager manager = (DBManager) session.getAttribute("manager");

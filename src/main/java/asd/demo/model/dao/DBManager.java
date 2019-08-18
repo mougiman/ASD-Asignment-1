@@ -2,10 +2,11 @@ package asd.demo.model.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
-import asd.demo.model.Auction;
+import asd.demo.model.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 
 
 /**
@@ -105,7 +106,7 @@ return true;
     public History[] getHistory() throws SQLException {
         String searchQueryString = "select * from ISDUSER.ORDERS";
         ResultSet rs = st.executeQuery(searchQueryString);
-        ArrayList<History> histoiesFromDB;
+        ArrayList<History> historiesFromDB;
         historiesFromDB = new ArrayList();
         //search the ResultSet for a student using the parameters
         boolean hasHistory;

@@ -14,10 +14,9 @@
         <title>List an Item</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-                <jsp:include page="header.jsp"/>
 
     <body>
-     
+        <jsp:include page="header.jsp"/>
 
         <%  // This is code in relation to the local database
             DBManager manager = (DBManager) session.getAttribute("manager");
@@ -133,4 +132,3 @@
 
     </body>
 </html>
-

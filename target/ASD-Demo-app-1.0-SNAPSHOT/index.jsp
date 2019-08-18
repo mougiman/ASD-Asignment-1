@@ -7,14 +7,14 @@
         <title>Main</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
-            <jsp:include page="header.jsp"/>
+
     <body>        
         <%  // This is code in relation to the local database
             //DBManager manager = (DBManager) session.getAttribute("manager");
         %>
        
-  
-        
+        <jsp:include page="header.jsp"/>
+            
         <div class="container">
             <div class="row">
                 <h> All products </h>
@@ -36,5 +36,11 @@
         </div> 
         
         <jsp:include page="/ConnServlet" flush="true" />
+        <jsp:include page="logout.jsp"/>
+
+        </div>
+        
+     
+
     </body>
 </html>
