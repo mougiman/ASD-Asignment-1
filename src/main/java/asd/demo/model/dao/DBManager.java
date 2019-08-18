@@ -1,10 +1,12 @@
 package asd.demo.model.dao;
 
-import asd.demo.model.Auction;
 import java.sql.*;
+import java.util.ArrayList;
+import asd.demo.model.Auction;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -31,7 +33,10 @@ public class DBManager {
         st.executeUpdate(query);
     }
     
-        public void addAucItem(String id, String name, String datelisted, int quantity,  Double bid, String desc, String category, String yearMade, String sellerId, String condition, String color,String expdate,String CusID) throws SQLException {
+    
+    
+    
+    public void addAucItem(String id, String name, String datelisted, int quantity,  Double bid, String desc, String category, String yearMade, String sellerId, String condition, String color,String expdate,String CusID) throws SQLException {
         String query = "INSERT INTO AUC (ID, NAME, DATELISTED, QUANTITY, BID，DESCRIPTION, CATEGORY, YEARMADE, SELLERID, CONDITION, COLOR,EXPDATE,CUSID) VALUES ('" + id + "','" + name + "','" + datelisted + "'," + quantity + "," + bid + ",'" + desc + "','" + category + "','" + yearMade + "','" + sellerId + "','" + condition + "','" + color + "','" + expdate + "','" + CusID + "')";
         st.executeUpdate(query);
     }
@@ -96,4 +101,37 @@ return true;
                  {return false;}
          return true;
    }
-}
+    
+    public History[] getHistory() throws SQLException {
+        String searchQueryString = "select * from ISDUSER.ORDERS";
+        ResultSet rs = st.executeQuery(searchQueryString);
+        ArrayList<History> histoiesFromDB;
+        historiesFromDB = new ArrayList();
+        //search the ResultSet for a student using the parameters
+        boolean hasHistory;
+        hasHistory = rs.next();
+
+        while (rs.next()) {
+
+            String hID = rs.getString("id");
+            String hName = rs.getString("name");
+            String hDatelisted = rs.getString("datelisted");
+            String hQty = rs.getString("qty");
+            String hDesc = rs.getString("desc");
+            String hCategory = rs.getString("category");
+            String hYearMade = rs.getString("yearMade");
+            String hSellerId = rs.getString("sellerId");
+            String hColor = rs.getString("color");
+            String hCusID = rs.getString("CusID");
+            String hPrice = rs.getString("price");
+
+            historiesFromDB.add(new History(hID, hName, hDatelisted, hQty, hDesc, hCategory, hYearMade, hSellerId, hColor, hCusID, hPrice));
+        }
+        rs.close();
+        // st.close();
+        return historiesFromDB.toArray(new History[historiesFromDB.size()]);
+
+    }
+   
+   
+   }
