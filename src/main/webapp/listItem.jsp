@@ -4,6 +4,7 @@
     Author     : Mougi
 --%>
 
+<%@page import="asd.demo.model.dao.DBManager"%>
 <%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
         <jsp:include page="header.jsp"/>
 
         <%  // This is code in relation to the local database
-            //DBManager manager = (DBManager) session.getAttribute("manager");
+            DBManager manager = (DBManager) session.getAttribute("manager");
             //this is code that changes the page depending on if the user has listed an  item properly
             String itemName = request.getParameter("itemName");
             if (itemName == null) {
@@ -123,7 +124,7 @@
             String itemColor = request.getParameter("itemColor");
             String itemYearMade = request.getParameter("itemYearMade");
 
-            //manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
+            manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
         %>
         <p><%=itemName%> has been Listed</p>
         <a href="listItem.jsp">List another item</a>
