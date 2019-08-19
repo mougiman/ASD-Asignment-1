@@ -124,7 +124,7 @@
             String itemColor = request.getParameter("itemColor");
             String itemYearMade = request.getParameter("itemYearMade");
 
-            manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
+            //manager.addItem(itemID, itemName, itemDateListed, itemQuantity, 0, itemPrice, itemDesc, itemCategory, itemYearMade, itemSellerID, itemCond, itemColor);
         %>
         <p><%=itemName%> has been Listed</p>
         <a href="listItem.jsp">List another item</a>
