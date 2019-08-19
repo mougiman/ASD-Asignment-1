@@ -31,7 +31,7 @@
         <h1>Account Profile</h1>        
         <form action="editUser.jsp" method="POST">
             <table>
-                     <tr><td>Full name</td><td><input type="text" name="name" size="25" value=" Changkeun Hyun<% //=user.getName()%>"></td></tr>
+                     <tr><td>Full name</td><td><input type="text" name="name" size="25" value=" Calvin<% //=user.getName()%>"></td></tr>
                 <tr><td>Email</td><td><input type="text" name="email" size="25" value=" sean3404@uts.com<%//=user.getEmail()%>"></td></tr>
                 <tr><td>Phone</td><td><input type="text" name="phone" size="25" value=" 04221191111<%//=user.getPhone()%>"></td></tr>
                
