@@ -36,7 +36,7 @@
                 <tr><td>Phone</td><td><input type="text" name="phone" size="25" value=" 04221191111<%//=user.getPhone()%>"></td></tr>
                
                         <button class="button" type="button" onclick="location.href = 'listings.jsp'" >Back</button>
-                        <button class="button" type="button" onclick="location.href = 'salesItem.jsp'" > See other items </button>
+                        <button class="button" type="button" onclick="location.href = 'salesHistory.jsp'" > See other items </button>
                       
                     </td>
                 </tr>
