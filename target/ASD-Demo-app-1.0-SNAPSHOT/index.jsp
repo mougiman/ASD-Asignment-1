@@ -1,4 +1,3 @@
-<%@page import="asd.demo.model.dao.DBManager"%>
 <%@page import="asd.demo.model.*"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
