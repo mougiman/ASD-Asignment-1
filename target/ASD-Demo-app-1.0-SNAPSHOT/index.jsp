@@ -9,7 +9,7 @@
 
     <body>        
         <%  // This is code in relation to the local database
-            DBManager manager = (DBManager) session.getAttribute("manager");
+           // DBManager manager = (DBManager) session.getAttribute("manager");
             String itemName = request.getParameter("itemName");
         %>
        
