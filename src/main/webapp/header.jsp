@@ -5,7 +5,6 @@
 --%>
 <%@page import="asd.demo.model.User"%>
 <%@page import="asd.demo.model.Users"%>
-<%@page import="asd.demo.model.dao.DBManager"%>
 <%@page import="asd.demo.model.*"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>

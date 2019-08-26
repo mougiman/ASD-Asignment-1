@@ -56,7 +56,7 @@
                 </div>
                 <div class="col">
                     <div class="userBox">
-                        <div> Listed User: Calvin </div> <!-- Will link to user's profile -->
+                        <div> Listed User:<a href="view_user.jsp">Calvin</a></div> <!-- Will link to user's profile -->
                         <div> Listed Date: 15/08/2019 </div>
                     </div>
                 </div>

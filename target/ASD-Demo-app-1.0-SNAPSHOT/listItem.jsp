@@ -4,8 +4,8 @@
     Author     : Mougi
 --%>
 
-<%@page import="java.util.Random"%>
 <%@page import="asd.demo.model.dao.DBManager"%>
+<%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
