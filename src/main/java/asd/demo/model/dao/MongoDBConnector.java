@@ -22,10 +22,10 @@ import static com.mongodb.client.model.Filters.eq;
 public class MongoDBConnector {
 
     private List<Document> users = new ArrayList();
-    private String owner;
-    private String password;
+   // private String owner;
+   // private String password;
 
-    public MongoDatabase getMongoDB(){
+  /*  public MongoDatabase getMongoDB(){
        MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
        MongoDatabase db;
        try (MongoClient client = new MongoClient(uri)) {
@@ -38,15 +38,13 @@ public class MongoDBConnector {
         this.owner = owner;
         this.password = password;
     }
-
     public void showall(Users users) {
         for (User u : users.getList()) {
             System.out.println(u.getName());
         }
     }
-
     public void add(User user) {
-        MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
+        MongoClientURI uri = new MongoClientURI("mongodb+srv://weize:Holyshit1.@asd-assignment-5im26.gcp.mongodb.net/test?retryWrites=true&w=majority");
         try (MongoClient client = new MongoClient(uri)) {
             MongoDatabase db = client.getDatabase(uri.getDatabase());
             users.add(new Document("Username", user.getEmail()).append("Password", user.getPassword()).append("Name", user.getName()).append("Phone", user.getPhone()));
@@ -54,7 +52,6 @@ public class MongoDBConnector {
             userlist.insertMany(users);
         }
     }
-
     public void showUsers() {
         MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
         try (MongoClient client = new MongoClient(uri)) {
@@ -67,7 +64,6 @@ public class MongoDBConnector {
             }
         }
     }
-
     public Users loadUsers() {
         MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
         Users users;
@@ -82,7 +78,6 @@ public class MongoDBConnector {
         }
         return users;
     }
-
     public User user(String email, String password) {
         MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
         User user;
@@ -94,12 +89,48 @@ public class MongoDBConnector {
         }
         return user;
     }
-
     public int add(int a, int b) {
         return a + b;
     }
-
     public int subtract(int a, int b) {
         return a - b;
     }
+*/
+
+     public void addAucItem(String id, String name, String datelisted, int quantity,  Double price, String desc, String category, String sellerId,String expdate,String CusID)
+     {
+     String uri = "mongodb+srv://weize:Holyshit1.@asd-assignment-5im26.gcp.mongodb.net/test?retryWrites=true&w=majority";
+    MongoClientURI clientURI = new MongoClientURI(uri);
+    MongoClient mongoClient = new MongoClient(clientURI);
+    MongoDatabase mongoDatabase = mongoClient.getDatabase( "ASD");
+    MongoCollection collection = mongoDatabase.getCollection("Product");
+    Document document = new Document("id", id).
+                    append("name", name).
+                    append("datelisted", datelisted).
+                    append("quantity", quantity).
+                    append("price", price).
+                    append("desc", desc).
+                    append("category", category).
+                    append("sellerId", sellerId).
+                    append("expdate", expdate).
+                    append("CusID", CusID);
+ 
+         collection.insertOne(document); 
+     }
+     
+      public void addUser(String id, String name, String email, String password, String phone)
+     {
+    String uri = "mongodb+srv://weize:Holyshit1.@asd-assignment-5im26.gcp.mongodb.net/test?retryWrites=true&w=majority";
+    MongoClientURI clientURI = new MongoClientURI(uri);
+    MongoClient mongoClient = new MongoClient(clientURI);
+    MongoDatabase mongoDatabase = mongoClient.getDatabase( "ASD");
+    MongoCollection collection = mongoDatabase.getCollection("Users");
+    Document document = new Document("id", id).
+                    append("name", name).
+                    append("email", email).
+                    append("password", password).
+                    append("phone", phone);
+ 
+         collection.insertOne(document); 
+     }
 }
