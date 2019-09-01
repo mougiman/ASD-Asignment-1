@@ -102,4 +102,11 @@ public class MongoDBConnector {
     public int subtract(int a, int b) {
         return a - b;
     }
+    
+    public ItemList itemList(){
+        ItemList items;
+        items = new ItemList();
+        //items.addItem(new Item());
+        return items;
+    }
 }

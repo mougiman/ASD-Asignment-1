@@ -74,18 +74,18 @@ p{
 
 .row{
    padding-top: 20px;
-    background-color: lightblue;
+   background-color: lightblue;
 }
 .itemCard{
     text-align: center;
-    width:200px;
+    width: 200px;
     height: 250px;
     margin: 20px 20px;
     background-color: pink;
 }
 .mainBox{
-    width: 60%;
-    line-height: 25px; 
+    width: 100%;
+    line-height: 30px; 
 }
 .userBox{
     width: 30%;
@@ -97,5 +97,24 @@ p{
 }
 
 .col{
-    padding: 20px 40px 10px 50px;
+    width:100%;
+    text-align: center;
+    padding: 20px 40px 10px 0px;
+    background-color: lightblue;
+}
+
+a.button{
+    padding: 20px 30px 20px 30px;
+    margin: 20px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    
+    text-decoration: none;
+    color: initial;
+}
+
+table, th, td{
+    border:2px solid black;
+    padding: 5px;
 }

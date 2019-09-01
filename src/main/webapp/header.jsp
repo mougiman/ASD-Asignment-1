@@ -29,14 +29,14 @@
             <a href="index.jsp" class="links">Home</a>
         <a href="listItem.jsp" class="links">List an Item</a>
                     <a href="Auction.jsp" class="links">Auction a product</a>
-        <a href="placebid.jsp" class="links">place a bid</a>
+        <a href="placebid.jsp" class="links">Place a bid</a>
             <% } %>
         </span>
         <span class="rightalign">
             <% if (user != null) {%>
             <a href="myAccount.jsp"> <%=user%>'s Profile</a>
                 <% if (true /*user.isAdmin() - Function does not exist*/) { %>
-                <a href="adminManagement.jsp">Administration</a>
+                <a href="adminPage.jsp">Administration</a>
                 <% } %>
             <a href="cart.jsp">Cart</a>
             <a href="logoutAction.jsp">Logout</a>
