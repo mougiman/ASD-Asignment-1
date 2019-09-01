@@ -5,13 +5,23 @@
     <artifactId>ASD-Demo-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>ASD-Asignment-1</name>
+    <name>ASD-Asignment-1.2</name>
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <dependencies>
+	
+
+		<!-- MongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.6.3</version>
+		</dependency>
+
+
         <!-- GAE SDK dependency -->
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -129,6 +139,7 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
+		
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -175,7 +186,8 @@
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>2.3</version>
                 <executions>
-
+ 
+					
                 </executions>
                 <dependencies>
                     <dependency>
@@ -193,5 +205,6 @@
                 </configuration>
             </plugin>
         </plugins>
+	
     </build>
 </project>
