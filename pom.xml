@@ -18,7 +18,7 @@
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>1.9.65</version>
         </dependency>
-        <!-- mLab MongoDB driver dependency -->
+        <!-- MongoDB driver dependency -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>

@@ -21,10 +21,8 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <% //Dummy data, will be replaced when database is fixed
-            ArrayList <User> userList = new ArrayList<User>();
-            userList.add(new User("john", "johnsmith@gmail.com", "1234", "0412933321"));
-            userList.add(new User("john2", "johnsmith2@gmail.com", "12345", "0412944421"));
+        <% //Stores the data from the controller
+            ArrayList<User> userList = (ArrayList<User>) session.getAttribute("users");
         %>
         <div class="container">
             <div class="row">
@@ -38,6 +36,7 @@
                        <th> Password</th>
                        <th> Phone </th>
                     </tr>
+                    <!--- Displays all users in a table --->
                     <% for(User user: userList){ %>
                         <tr>
                             <td>

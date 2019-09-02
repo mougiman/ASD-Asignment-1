@@ -15,38 +15,38 @@
     <body>  
         <jsp:include page="header.jsp"/>
         
-                    <% Item item = (Item) session.getAttribute("name");
+                    <% Item item = (Item) request.getAttribute("name");
                     %>  
         <div class="row">
             <div class="mainBox">
                 <div class="col">
-                    <!---
                     
+                    <h><%=item.getName()%></h>
                     <p></p>
-                    <img src="<%//=item.getImage()%>" style="width:500px; height:400px;"/>
+                    <img src="<%=item.getImage()%>" style="width:500px; height:400px;"/>
                     <div> Description </div>
-                        <div> <%//=item.getDescription()%> </div>
-                        <div> Category: <%//=item.getCategory()%> </div>
-                        <div> Price: <%//=item.getImage()%> </div>
-                        <div> Condition: <%//=item.getImage()%> </div>
-                        <div> Color: <//%=item.getImage()%> </div>
-                        <div> Year Made: <%//=item.getImage()%> </div>
+                        <div> <%=item.getDescription()%> </div>
+                        <div> Category: <%=item.getCategory()%> </div>
+                        <div> Price: <%=item.getPrice()%> </div>
+                        <div> Condition: <%=item.getCondition()%> </div>
+                        <div> Color: <%=item.getColor()%> </div>
+                        <div> Year Made: <%=item.getYearMade()%> </div>
                         <button type="button"> Buy Now! </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="userBox">
-                            <div> Listed User: <%//=item.getSellerID()%> </div>
-                            <div> Listed Date: <%//=item.getDateListed()%> </div>
+                            <div> Listed User: <%=item.getSellerID()%> </div>
+                            <div> Listed Date: <%=item.getDateListed()%> </div>
                         </div>
                     </div>
-                    --->
                     
-                    <h>1000 Piece Puzzle</h> <!--- Will link to item info --->
+                    <!---
+                    <h>1000 Piece Puzzle</h>
                     <p></p>
                     
                         <img src="puzzle-img.jpg" style="width:500px; height:400px;"/>
-                            <h> <u><%=item.getName()%></u> </h1>
+                            <h> <u><%//=item.getName()%></u> </h1>
                         <div> Description </div>
                         <div> A puzzle box with 1000 pieces. </div>
                         <div> Category: Toys/Games </div>
@@ -60,10 +60,10 @@
                 </div>
                 <div class="col">
                     <div class="userBox">
-                        <div> Listed User:<a href="viewUser.jsp">Calvin</a></div> <!-- Will link to user's profile -->
+                        <div> Listed User:<a href="viewUser.jsp">Calvin</a></div>
                         <div> Listed Date: 15/08/2019 </div>
                     </div>
-                </div>
+                </div>--->
             </div>
         </div>
     </body>

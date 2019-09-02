@@ -12,8 +12,10 @@ import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import java.util.*;
 import asd.demo.model.*;
+import com.mongodb.Block;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.and;
@@ -24,9 +26,14 @@ public class MongoDBConnector {
     private List<Document> users = new ArrayList();
     private String owner;
     private String password;
+    MongoDatabase shopDB = getMongoDB();
 
     public MongoDatabase getMongoDB(){
-       MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
+       MongoClientURI uri = new MongoClientURI(
+        "mongodb://Calvin:<ASDAssignment1>@asd-assignment-shard-00-00-5im26.gcp.mongodb.net:27017,asd-assignment-shard-00-01-5im26.gcp.mongodb.net:27017,asd-assignment-shard-00-02-5im26.gcp.mongodb.net:27017/test?ssl=true&replicaSet=ASD-Assignment-shard-0&authSource=admin&retryWrites=true&w=majority");
+
+       //MongoClient mongoClient = new MongoClient(uri);
+       //MongoDatabase database = mongoClient.getDatabase("test");
        MongoDatabase db;
        try (MongoClient client = new MongoClient(uri)) {
             db = client.getDatabase(uri.getDatabase());
@@ -34,11 +41,12 @@ public class MongoDBConnector {
        return db;
     }
     
-    public MongoDBConnector(String owner, String password) throws UnknownHostException {
-        this.owner = owner;
-        this.password = password;
-    }
-
+    Block<Document> printBlock = new Block<Document>() {
+        @Override
+        public void apply(final Document document) {
+            System.out.println(document.toJson());
+        }
+    };  
     public void showall(Users users) {
         for (User u : users.getList()) {
             System.out.println(u.getName());
@@ -103,10 +111,33 @@ public class MongoDBConnector {
         return a - b;
     }
     
-    public ItemList itemList(){
-        ItemList items;
-        items = new ItemList();
-        //items.addItem(new Item());
-        return items;
+    public Item getItemList(){
+        
+        MongoClientURI uri = new MongoClientURI("mongodb://Calvin:<ASDAssignment1>@asd-assignment-shard-00-00-5im26.gcp.mongodb.net:27017,asd-assignment-shard-00-01-5im26.gcp.mongodb.net:27017,asd-assignment-shard-00-02-5im26.gcp.mongodb.net:27017/test?ssl=true&replicaSet=ASD-Assignment-shard-0&authSource=admin&retryWrites=true&w=majority");
+        MongoClient client = new MongoClient(uri);
+                MongoDatabase db = client.getDatabase(uri.getDatabase());
+            
+        MongoCollection<Document> databaseList = db.getCollection("Item");
+        /*ItemList items = new ItemList();
+        FindIterable<Document> findIterable = databaseList.find(new Document());
+        
+        findIterable.forEach(printBlock);
+        */
+        /*for (Document doc : databaseList.find()) {
+            Item item = new Item((String) doc.get("id"), (String) doc.get("name"), (String) doc.get("dateListed"), (int) doc.get("stock"), (int) doc.get("soldQuantity"), (double) doc.get("price"), (String) doc.get("desc"), (String) doc.get("category"), (String) doc.get("yearMade"), (String) doc.get("sellerId"), (String) doc.get("condition"), (String) doc.get("color"), (String) doc.get("image"));
+            items.addItem(item);
+            System.out.println("Works");
+
+        }*/
+        Item item = new Item("01","1000 Piece Puzzle","01/01/2018",10,30,9.99,"Great Board Game","Puzzle","2017","01-Calvin","New","Brown","puzzle-img.jpg");
+        return item;
+    }
+    public Users getUserList(){
+        Users userList = new Users();
+        userList.addUser(new User("john", "johnsmith@gmail.com", "1234", "0412933321"));
+        userList.addUser(new User("john2", "johnsmith2@gmail.com", "12345", "0412944421"));
+        userList.addUser(new User("John", "johnsmith@gmail.com", "Password123", "0416955386"));
+        return userList;
     }
 }
+

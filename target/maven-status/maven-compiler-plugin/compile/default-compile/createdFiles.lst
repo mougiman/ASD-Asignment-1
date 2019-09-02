@@ -1,5 +1,6 @@
 asd\demo\model\ItemList.class
 asd\demo\model\Users.class
+asd\demo\controller\adminPageServlet.class
 asd\demo\model\dao\DB.class
 asd\demo\controller\ConnServlet.class
 asd\demo\model\Auction.class
@@ -9,6 +10,7 @@ asd\demo\controller\ValidatorServlet.class
 asd\demo\model\Auctions.class
 asd\demo\model\Item.class
 asd\demo\model\Test.class
+asd\demo\controller\HomeController.class
 asd\demo\controller\Validator.class
 asd\demo\model\dao\DBConnector.class
 asd\demo\model\dao\MongoDBConnector.class

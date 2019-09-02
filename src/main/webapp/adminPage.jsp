@@ -25,7 +25,8 @@
                 <div> Username: Calvin </div>
             </div>
             <div class="col">
-                <a href="allUsers.jsp" class="button"> Manage users </a>
+                <a href="allUsers.jsp" class="button"> Manage Users </a>
+                    <!--<a href="./all" class="button"> Manage users </a>-->
                 <a href="allListings.jsp" class="button"> Manage listings </a>
             </div>
         </div>

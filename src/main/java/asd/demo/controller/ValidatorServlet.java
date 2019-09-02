@@ -26,7 +26,7 @@ public class ValidatorServlet extends HttpServlet {
         
         String adminemail = (String)session.getAttribute("adminemail");
         String adminpass = (String)session.getAttribute("adminpassword");
-        MongoDBConnector connector = new MongoDBConnector(adminemail, adminpass);
+        MongoDBConnector connector = new MongoDBConnector();
 
         if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Incorrect email format");            
