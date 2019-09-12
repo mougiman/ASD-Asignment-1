@@ -11,41 +11,56 @@
 <%@page import="asd.demo.model.dao.DBManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>       
-    
-
+<html lang="en">       
     <head>
-     <script type="text/javascript" src="jquery-1.4.2.js"></script> 
-  <script type="text/javascript" src="jquery.validate.js"></script> 
-  <script LANGUAGE="JavaScript"> 
- $ jQuery(function(){        
-        jQuery.validator.methods.compareDate = function(value, element ) { 
-  
+         <meta charset=UTF-8">
+        <title>List an Item</title>
+        <link rel="stylesheet" href="css/ASDStyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type=text/javascript> type="text/javascript"></script>
+        <script src ="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js" type="text/javascript"></script>      
+        <script type="text/javascript">
+        
+<script>
+            $(document).ready(function(){
+                $('#auctionform').validate({
+                    rules:{
+                        itemName:{
+                            required: true,
+                            textonly: true,
+                            maxlength: 20
+                        },
+                       itemC:{
+                            required: true
+                     
+                        },
+                       itemDesc:{
+                            required:true
+                       
+                       },
+                       itemQ:{
+                           required:true,
+                            digits: true
+                           
+                         
+                       },
+                       itemPrice:{
+                           required: true,
+                           digits: true
+                        
+                       }
+                   }
+                
+       
+                });
+                
+            });
 
-            var date = new Date.now(); 
+        </script>
 
-            var date1 = new Date(Date.parse(date.replace("-", "/"))); 
-            var date2 = new Date(Date.parse(value.replace("-", "/"))); 
-            return date1 < date2; 
-        };
-          jQuery().validate({ 
-            focusInvalid:false, 
-            rules:{ 
-                "expdate":{ 
-                    required: true, 
-                    compareDate:"#expdate"
-                }
-            },
-               messages:{ 
-                "expdate":{ 
-                    compareDate: "wrong time" 
-                }
-            }
-        });
-    });
 
-  
-  </script>
+
+
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List an Item</title>
@@ -54,7 +69,11 @@
     </head>
         <jsp:include page="header.jsp"/>
     <body>
- <%     MongoDBConnector connector = new MongoDBConnector();     
+ <%     MongoDBConnector connector = new MongoDBConnector(); 
+ LocalDate now =LocalDate.now();
+        String date = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String expdate = request.getParameter("expdate");
+
   String itemName = request.getParameter("itemName");
             if (itemName == null) {
                
@@ -62,7 +81,7 @@
 
         <h1><p>Auction a Product</p></h1>
         <!--If user is logged in then -->
-        <form method="post"action="Auction.jsp">
+        <form method="post"action="Auction.jsp" id = "auctionform">
             <table>
                 <tr>
                     <td>
@@ -78,7 +97,7 @@
                         <p>Category:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemCategory">
+                        <input type="text" name="itemC">
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +114,7 @@
                         <p>Quantity:</p>
                     </td>
                     <td>
-                        <input type="text" name="itemQuantity">
+                        <input type="text" name="itemQ">
                     </td>
                 </tr>                
                 <tr>
@@ -122,8 +141,14 @@
                     </td></tr>
             </table>
         </form>
+        <%  
+        } else if( expdate.compareTo(date)<0 )
+{
+ %>
+        <p><%=itemName%>  Has a wrong time</p>
+        <a href="Auction.jsp">Auction again</a>
         <%
-        } else {
+}else {
 
             String itemCategory = request.getParameter("itemCategory");
             String itemDesc = request.getParameter("itemDesc");
@@ -131,15 +156,16 @@
             Double itemPrice = Double.parseDouble(request.getParameter("itemPrice"));
             String itemDateListed = "" + java.time.LocalDate.now();
             int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
-            String expdate = request.getParameter("expdate");
+            String expdate1 = request.getParameter("expdate");
            
             String itemSellerID = "11111111";
             Random rand = new Random();
             String itemID = "" + rand.nextInt(999999999);
+            boolean ifAuc = true;
             
             
 
-            connector.addAucItem(itemID, itemName, itemDateListed, itemQuantity,  itemPrice, itemDesc, itemCategory,itemSellerID,  expdate, null);
+            connector.addAucItem(itemID, itemName, itemDateListed, itemQuantity,  itemPrice, itemDesc, itemCategory,itemSellerID,  expdate1, null, ifAuc);
         %>
         <p><%=itemName%> has been Auctioned</p>
         <a href="Auction.jsp">Auction another Product</a>
