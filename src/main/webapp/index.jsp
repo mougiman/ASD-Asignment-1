@@ -1,4 +1,5 @@
-<%@page import="asd.demo.model.dao.DBManager"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="asd.demo.model.dao.MongoDBConnector"%>
 <%@page import="asd.demo.model.*"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
@@ -10,28 +11,48 @@
 
     <body>        
         <%  // This is code in relation to the local database
-            //DBManager manager = (DBManager) session.getAttribute("manager");
+            // DBManager manager = (DBManager) session.getAttribute("manager");
+            //String itemName = request.getParameter("itemName");
         %>
-       
-        <p class="title">Sell n Buy / Barter-Mart</p>
-        <p>Name is currently pending</p>
-        
-        <div class="navbar">
-        <a href="index.jsp" class="links">Main</a>
-        <a href="listings.jsp" class="links">View Listings</a>
-        <a href="listItem.jsp" class="links">List an Item</a>
-        <a href="Auction.jsp" class="links">Auction a product</a>
-        <a href="placebid.jsp" class="links">place a bid</a>
-
-        <a href="login.jsp" class="links">Login</a>
-        </div>
-        
-        <jsp:include page="/ConnServlet" flush="true" />
-        <jsp:include page="logout.jsp"/>
-
-        </div>
-        
-     
-
+         <%if(session.getAttribute("userEmail")!=null)
+        {
+            %>
+                   <h3>Welcome<%=session.getAttribute("userEmail")%></h3>
+                   <a href="logout.jsp">Logout</a>
+                   <%
+                       }
+else
+{
+%>
+<a href="login.jsp">Login</a>
+<%
+    }
+%>
+        <jsp:include page="header.jsp"/>
+        <div class="container">
+            <div class="row">
+                <h> All products</h>
+            </div>
+            <div class="row">
+                <div class="itemList">
+                    <%
+                        MongoDBConnector connector = new MongoDBConnector();
+                        ArrayList<Item> items = new ArrayList<Item>();
+                        items = connector.getItemList();
+                        for (Item item : items) {
+                    %>
+                    <form method="post" action="itemPage.jsp" class="itemCard">
+                        <img src="puzzle-img.jpg" style="width:200px; height:200px;"/>
+                        <input type="HIDDEN" name="id" value="<%=item.getID()%>">
+                        <input class="" type="submit" value="<%=item.getName()%>">
+                        <p>$<%=item.getPrice()%></p>
+                    </form> 
+                    <%
+                        }
+                    %>
+                </div>        
+            </div>
+        </div> 
+      
     </body>
 </html>
